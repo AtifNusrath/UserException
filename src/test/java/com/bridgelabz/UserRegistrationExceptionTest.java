@@ -51,4 +51,24 @@ public class UserRegistrationExceptionTest {
         }
     }
 
+    @Test
+    public void testEmail_thenAssertionSucceeds() {
+        try {
+            Assert.assertTrue(user.isValidateEmail("abc@gmail.com"));
+            System.out.println("Valid Email");
+        } catch (UserRegistrationException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Test
+    public void testEmail_thenAssertionFail() {
+        try {
+            Assert.assertTrue(user.isValidateEmail("abc@gmail@.com@"));
+            System.out.println("Valid Email");
+        } catch (UserRegistrationException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }

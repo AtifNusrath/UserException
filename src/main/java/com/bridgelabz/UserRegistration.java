@@ -16,6 +16,12 @@ public class UserRegistration {
         return true;
     }
 
+    public boolean isValidateEmail(String email) throws UserRegistrationException {
+        if (!validateRegex(email, RegexConstant.EMAIL_ID_REGEX))
+            throw new UserRegistrationException("Invalid Email Id");
+        return true;
+    }
+
     private boolean validateRegex(String request, String pattern) {
         return Pattern.compile(pattern).matcher(request).matches() ? true : false;
     }
