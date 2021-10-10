@@ -71,4 +71,22 @@ public class UserRegistrationExceptionTest {
         }
     }
 
+    @Test
+    public void testMobileNumber_thenAssertionSucceeds() throws UserRegistrationException {
+        Assert.assertTrue(user.isValidateMobileNumber("91 9876543210"));
+        System.out.println("Valid Mobile Number");
+
+    }
+
+    @Test
+    public void testMobileNumber_thenAssertionFail() {
+        try {
+            Assert.assertTrue(user.isValidateMobileNumber("91 20876543210"));
+            System.out.println("Valid Mobile Number");
+        } catch (UserRegistrationException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
 }

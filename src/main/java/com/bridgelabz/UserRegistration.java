@@ -22,6 +22,13 @@ public class UserRegistration {
         return true;
     }
 
+    public boolean isValidateMobileNumber(String mobileNumber) throws UserRegistrationException {
+        if (!validateRegex(mobileNumber, RegexConstant.MOBILE_NUMBER_REGEX)) {
+            return false;
+        }
+        return true;
+    }
+
     private boolean validateRegex(String request, String pattern) {
         return Pattern.compile(pattern).matcher(request).matches() ? true : false;
     }
