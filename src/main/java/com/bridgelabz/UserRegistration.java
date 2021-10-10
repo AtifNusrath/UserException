@@ -9,6 +9,13 @@ public class UserRegistration {
             throw new UserRegistrationException("Invalid First name");
         return true;
     }
+
+    public boolean isValidateLastName(String lastName) throws UserRegistrationException {
+        if (!validateRegex(lastName, RegexConstant.LAST_NAME_REGEX))
+            throw new UserRegistrationException("Invalid Last name");
+        return true;
+    }
+
     private boolean validateRegex(String request, String pattern) {
         return Pattern.compile(pattern).matcher(request).matches() ? true : false;
     }

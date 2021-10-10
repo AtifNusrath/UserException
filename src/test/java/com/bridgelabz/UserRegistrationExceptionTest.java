@@ -31,4 +31,24 @@ public class UserRegistrationExceptionTest {
         }
     }
 
+    @Test
+    public void testLastName_thenAssertionSucceeds() {
+        try {
+            Assert.assertTrue(user.isValidateLastName("Atif"));
+            System.out.println("Valid Last Name");
+        } catch (UserRegistrationException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Test
+    public void testLastName_thenAssertionFail() {
+        try {
+            Assert.assertTrue(user.isValidateLastName("lastname"));
+            System.out.println("Valid Last Name");
+        } catch (UserRegistrationException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }
