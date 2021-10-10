@@ -88,5 +88,53 @@ public class UserRegistrationExceptionTest {
         }
     }
 
+    @Test
+    public void testPassword_thenAssertionSucceeds() {
+        try {
+            Assert.assertTrue(user.isValidatePassword("Abcd@1234"));
+            System.out.println("Valid Password");
+        } catch (UserRegistrationException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
+    @Test
+    public void testPassword_thenAssertionSucceeds1() {
+        try {
+            Assert.assertTrue(user.isValidatePassword("Abcdefg@"));
+            System.out.println("Valid Password");
+        } catch (UserRegistrationException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Test
+    public void testPassword_thenAssertionSucceeds2() {
+        try {
+            Assert.assertTrue(user.isValidatePassword("1221212234"));
+            System.out.println("Valid Password");
+        } catch (UserRegistrationException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Test
+    public void testPassword_thenAssertionSucceeds3() {
+        try {
+            Assert.assertTrue(user.isValidatePassword("Ab@1234@@"));
+            System.out.println("Valid Password");
+        } catch (UserRegistrationException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Test
+    public void testPassword_thenAssertionFail() {
+        try {
+            Assert.assertTrue(user.isValidatePassword("bbb"));
+            System.out.println("Valid Password");
+        } catch (UserRegistrationException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

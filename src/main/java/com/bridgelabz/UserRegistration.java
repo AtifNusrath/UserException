@@ -29,6 +29,12 @@ public class UserRegistration {
         return true;
     }
 
+    public boolean isValidatePassword(String password) throws UserRegistrationException {
+        if (!validateRegex(password, RegexConstant.PASSWORD_REGEX))
+            throw new UserRegistrationException("Invalid Password");
+        return true;
+    }
+
     private boolean validateRegex(String request, String pattern) {
         return Pattern.compile(pattern).matcher(request).matches() ? true : false;
     }
